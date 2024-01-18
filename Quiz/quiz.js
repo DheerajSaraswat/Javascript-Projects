@@ -2,7 +2,7 @@ const startButton = document.getElementById("start");
 startButton.addEventListener("click", quiz, false);
 const title = document.getElementById("title");
 const card = document.querySelector(".card");
-const instructions = document.getElementById("instructions");
+const quizQue = document.getElementById("quiz");
 const option = document.getElementById('optionButtons')
 const submit = document.getElementById('submit')
 const next = document.getElementById('next')
@@ -12,6 +12,9 @@ const option2 = document.querySelector("#option2");
 const option3 = document.querySelector("#option3");
 const option4 = document.querySelector("#option4");
 const question = document.querySelector('#ques')
+const div = document.createElement('div')
+const body = document.querySelector('body')
+
 const questions = [
   {
     question: "1. What is typeof of NaN?",
@@ -76,27 +79,45 @@ function quiz() {
   } ,false)
 
 }
+let some = true
 function checkAns(){
       console.log(ans);
       if (ans.innerHTML === questions[answerChecker].answer) {
         document.querySelector(`#${ans.id}`).style.backgroundColor =
           "rgb(10, 132, 10)";
-        if(count-score===1){
-            score+=1;  
-            console.log(score);    
+        if(some){
+          score+=1;
+          some = false
         }
         if (nextListener) {
           next.removeEventListener('click', nextListener, false);
+          // console.log(score);
         }
         nextListener = () => {
           answerChecker += 1;
           nextQuestion();
+          some = true
         };
-        next.addEventListener("click", nextListener, false);
+        if(answerChecker===4){
+          next.innerHTML = 'See Result'
+          next.addEventListener('click', ()=>{
+            card.remove()
+            
+            div.innerHTML = `Your score is ${score}`
+            div.style.color = '#fff'
+            div.style.fontSize = '48px'
+            
+            document.body.appendChild(div)
+          } ,false)
+        } else {
+          next.addEventListener("click", nextListener, false);
+        }
+        
       } else {
         //   console.log("hey");
         document.querySelector(`#${ans.id}`).style.backgroundColor =
           "rgb(205, 101, 101)";
+          some = false
       }
     
 }
