@@ -1,0 +1,62 @@
+*{
+    padding: 0;
+    margin: 0;
+    background: #2b0328;
+}
+body{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.card{
+    background: peachpuff;
+    height: auto;
+    width: 35rem;
+    padding: 3rem 3rem;
+    border-radius: 1.5rem;
+}
+.card h1{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: rgba(45, 12, 108, 0.568);
+    background-color: transparent;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+.card div{
+    background-color: transparent;
+    color: azure;
+}
+.card div input{
+    border-style: none;
+    background-color: white;
+    height: 2.4rem;
+    width: 21rem;
+    border-radius: 1rem;
+    padding-left: 1rem;
+    outline: none;
+}
+.card div button{
+    position: relative;
+    left: 7rem;
+    height: 2.4rem;
+    width: 5rem;
+    border-radius: 2rem;
+    background-color: rgb(169, 117, 23);
+    border-style: none;
+    color: white;
+}
+.card div button:hover{
+    cursor:pointer;
+}
+.card div button:active{
+    transform: scale(1.05);
+    transition-duration: .5s;
+}
+.tasks{
+    width: 100%;
+    margin-top: 1rem;
+}
+.tasks li{
+
+}
